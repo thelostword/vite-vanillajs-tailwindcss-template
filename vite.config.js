@@ -2,15 +2,15 @@
  * @Author: thelostword
  * @Date: 2022-09-15 18:15:00
  * @LastEditors: thelostword
- * @LastEditTime: 2022-09-16 09:19:46
+ * @LastEditTime: 2022-09-16 12:50:48
  * @FilePath: \moe-page1\vite.config.js
  */
 
 /* eslint-disable */
 import { defineConfig, loadEnv } from 'vite';
-import { resolve } from 'path';
 import compressionPlugin from 'vite-plugin-compression';
 /* eslint-enable */
+import { pages } from './scripts/pages';
 
 export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd());
@@ -44,11 +44,7 @@ export default ({ mode }) => {
       assetsInlineLimit: 1024 * 4,
       sourcemap: false,
       rollupOptions: {
-        input: {
-          main: resolve(__dirname, 'index.html'),
-          about: resolve(__dirname, 'about/index.html'),
-          about1: resolve(__dirname, 'about1/index.html'),
-        },
+        input: pages(),
         output: {
           assetFileNames: (assetInfo) => {
             const info = assetInfo.name.split('.');
