@@ -2,7 +2,7 @@
   "name": "vite-vanillajs-tailwindcss-template",
   "private": true,
   "version": "0.0.0",
-  "description": "vite-vanillajs-tailwindcss-template",
+  "description": "基于vite的原生js项目快速启动模板",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
