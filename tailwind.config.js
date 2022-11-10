@@ -1,21 +1,14 @@
 /*
  * @Author: thelostword
- * @Date: 2022-09-15 15:51:23
+ * @Date: 2022-11-10 12:33:39
  * @LastEditors: thelostword
- * @LastEditTime: 2022-09-16 11:04:56
- * @FilePath: \moe-page1\tailwind.config.js
+ * @LastEditTime: 2022-11-10 12:38:01
+ * @FilePath: \moe-vanillajs-template\tailwind.config.js
  */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
   content: [
-    './index.html',
-    './**/*.{js,html}',
-    '!node_modules',
-    '!dist',
-    '!assets',
-    '!public',
-    '!scripts',
+    './src/**/*.{js,html}',
   ],
   theme: {
     extend: {},

@@ -2,11 +2,11 @@
  * @Author: thelostword
  * @Date: 2022-09-15 15:12:08
  * @LastEditors: thelostword
- * @LastEditTime: 2022-09-15 18:31:24
- * @FilePath: \moe-page1\src\components\popup-info\index.js
+ * @LastEditTime: 2022-11-10 11:54:19
+ * @FilePath: \moe-vanillajs-template\src\components\popup-info\index.js
  */
 // Create a class for the element
-import ImgAvatar from './assets/avatar.jpg';
+import ImgAvatar from '@/assets/avatar.jpg';
 import styleCss from './style.css';
 
 class PopUpInfo extends HTMLElement {

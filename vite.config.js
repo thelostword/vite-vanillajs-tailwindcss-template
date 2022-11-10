@@ -2,9 +2,10 @@
  * @Author: thelostword
  * @Date: 2022-09-15 18:15:00
  * @LastEditors: thelostword
- * @LastEditTime: 2022-09-16 12:50:48
- * @FilePath: \moe-page1\vite.config.js
+ * @LastEditTime: 2022-11-10 12:56:08
+ * @FilePath: \moe-vanillajs-template\vite.config.js
  */
+import { fileURLToPath, URL } from 'node:url';
 
 /* eslint-disable */
 import { defineConfig, loadEnv } from 'vite';
@@ -16,6 +17,7 @@ export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return defineConfig({
+    root: 'src',
     base: './',
     plugins: [
       compressionPlugin({
@@ -25,21 +27,27 @@ export default ({ mode }) => {
       }),
     ],
 
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
+    },
+
     server: {
       host: '0.0.0.0',
       port: 9527,
       open: true,
       proxy: {
-        [env.VITE_APP_BASE_API]: {
-          target: 'http://localhost:3000',
+        [env.VITE_PROXY_KEY]: {
+          target: env.VITE_BASE_API,
           changeOrigin: true,
-          rewrite: (path) => path.replace(new RegExp(`^${env.VITE_APP_BASE_API}`), ''),
+          rewrite: (path) => path.replace(new RegExp(`^${env.VITE_PROXY_KEY}`), ''),
         },
       },
     },
 
     build: {
-      outDir: 'dist',
+      outDir: '../dist',
       assetsDir: 'assets',
       assetsInlineLimit: 1024 * 4,
       sourcemap: false,
@@ -58,10 +66,10 @@ export default ({ mode }) => {
             } else if (/\.(woff2?|eot|ttf|otf)(\?.*)?$/i.test(assetInfo.name)) {
               extType = 'fonts';
             }
-            return `${extType}/[name]-[hash][extname]`;
+            return `assets/${extType}/[name]-[hash][extname]`;
           },
-          chunkFileNames: 'js/[name]-[hash].js',
-          entryFileNames: 'js/[name]-[hash].js',
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
           manualChunks: (id) => {
             if (id.includes('node_modules')) {
               const modules = id.toString().split('node_modules/')[2].split('/');
