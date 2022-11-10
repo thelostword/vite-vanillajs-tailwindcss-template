@@ -1,8 +1,8 @@
 {
-  "name": "vanillajs-start",
+  "name": "vite-vanillajs-tailwindcss-template",
   "private": true,
   "version": "0.0.0",
-  "description": "vanillajs-start",
+  "description": "vite-vanillajs-tailwindcss-template",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky install",
@@ -18,8 +18,9 @@
     "vite",
     "vanilla",
     "vanillajs",
+    "tailwindcss",
     "moe",
-    "vanillajs-start"
+    "vite-vanillajs-tailwindcss-template"
   ],
   "author": "losting",
   "license": "MIT",

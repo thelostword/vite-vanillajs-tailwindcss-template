@@ -2,7 +2,7 @@
  * @Author: thelostword
  * @Date: 2022-09-15 18:15:00
  * @LastEditors: thelostword
- * @LastEditTime: 2022-11-10 12:56:08
+ * @LastEditTime: 2022-11-10 14:08:04
  * @FilePath: \moe-vanillajs-template\vite.config.js
  */
 import { fileURLToPath, URL } from 'node:url';
@@ -13,6 +13,7 @@ import compressionPlugin from 'vite-plugin-compression';
 /* eslint-enable */
 import { pages } from './scripts/pages';
 
+console.log(import.meta.url, new URL('./src', import.meta.url));
 export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
